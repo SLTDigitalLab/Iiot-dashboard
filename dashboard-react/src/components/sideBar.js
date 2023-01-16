@@ -16,12 +16,15 @@ import TuneIcon from '@mui/icons-material/Tune';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
 import SwapHorizontalCircleIcon from '@mui/icons-material/SwapHorizontalCircle';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import SettingsIcon from '@mui/icons-material/Settings';
 import { useAppState } from '../state/appState';
 import Home from "../pages/Home";
 import ThresholdsPage from "../pages/ThresholdsPage";
 import Analysis from "../pages/Analysis";
 import Customize from "../pages/Customize";
 import Maintenance from "../pages/Maintenance";
+import Setting from "../pages/Setting";
+
 // import { AppBar, Toolbar, Typography } from '@mui/material';
 // import MenuIcon from '@mui/icons-material/Menu';
 // import CssBaseline from '@mui/material/CssBaseline';
@@ -174,6 +177,21 @@ export default function AppDrawer() {
               </ListItemButton>
             </ListItem>
 
+            <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>setMenudata("Setting")}>
+              <ListItemButton
+                sx={{ justifyContent: state.drawer ? 'initial' : 'center'}}
+              >
+                <ListItemIcon
+                  sx={{
+                    mr: state.drawer ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}>
+                    <SettingsIcon />
+                </ListItemIcon>
+                <ListItemText primary={"Settings"} sx={{ opacity: state.drawer ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+
             
 
         </List>
@@ -184,6 +202,7 @@ export default function AppDrawer() {
           {menudata == "Analysis" && <Analysis/>}
           {menudata == "Customize" && <Customize/>}
           {menudata == "Maintenance" && <Maintenance/>}
+          {menudata == "Setting" && <Setting />}
       </Box>
     </Box>
     </>

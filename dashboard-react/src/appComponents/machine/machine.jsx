@@ -3,10 +3,16 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import IconButton from "@mui/material/IconButton";
 
 import axios from "axios";
-const _ = require("lodash");  
 //dark theme
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
+
+//application files
+import Sensor from "../sensor/sensor";
+import "./machine.css";
+import { MachineContext } from "../../context/machineContext";
+
+const _ = require("lodash");  
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -16,11 +22,6 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "center",
   color: theme.palette.text.secondary,
 }));
-
-//application files
-import Sensor from "../sensor/sensor";
-import "./machine.css";
-import { MachineContext } from "../../context/machineContext";
 
 
 const ExpandMore = styled((props) => {

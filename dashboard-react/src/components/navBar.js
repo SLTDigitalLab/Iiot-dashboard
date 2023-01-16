@@ -1,15 +1,16 @@
-import { Box, FormControlLabel, FormGroup, IconButton, Menu, MenuItem, Switch, Toolbar, Typography, useMediaQuery } from "@mui/material";
+import { Box, FormControlLabel, FormGroup, IconButton, Link, Menu, MenuItem, Switch, Toolbar, Typography, useMediaQuery } from "@mui/material";
 import { styled, useTheme, alpha } from "@mui/material/styles";
 import MuiAppBar from "@mui/material/AppBar";
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import SettingsIcon from '@mui/icons-material/Settings';
-import { useEffect, useState,useContext } from "react";
+import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness';
+import React, { useEffect, useState,useContext } from "react";
 import { colors } from "../styles/Colors";
 import InputBase from '@mui/material/InputBase';
 import { useAppState } from "../state/appState";
+import Tooltip from '@mui/material/Tooltip';
 
 //css
 import "../styles/navbar.css";
@@ -84,6 +85,15 @@ export default function PrimaryAppbar({switchColorMode}) {
     const {state, dispatch} = useAppState();
     const [anchorEl, setAnchorEl]=useState(null);
 
+    const [anchorUser, setAnchorUser] = React.useState(null);
+    const open = Boolean(anchorUser);
+    const handleClick = (event) => {
+    setAnchorUser(event.currentTarget);
+    };
+        const handleClose = () => {
+        setAnchorUser(null);
+    };
+
 
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down('sm'));
@@ -154,16 +164,53 @@ export default function PrimaryAppbar({switchColorMode}) {
                         </IconButton>
                           
 
-                        <IconButton  sx={{color:'inherit'}}>
-                            <AccountCircleIcon />
-                      
-                        </IconButton>
+                        <IconButton sx= {{color:'inherit'}}>
+                            
+                            <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center'}}>
+                            
+                                <Tooltip title="Account settings">
+                                <IconButton
+                                    onClick={handleClick}
+                                    size="small"
+                                    
+                                    color='inherit'
+                                    aria-controls={open ? 'account-menu' : undefined}
+                                    aria-haspopup="true"
+                                    aria-expanded={open ? 'true' : undefined}
+                                >
+                                <AccountCircleIcon />
+                                </IconButton>
+                                </Tooltip>
+                            </Box>
+                            <Menu
+                                anchorUser={anchorUser}
+                                id="account-menu"
+                                open={open}
+                                onClose={handleClose}
+                                onClick={handleClose}
+                            
+                                transformOrigin={{ horizontal: 'right',vertical: 'top'}}
+                                anchorOrigin={{ horizontal: 'right',vertical: 'top'}}
+                            >
+                                <MenuItem>
+                                    <Link style={{textDecoration:'none', color: 'inherit'}} to>
+                                        Profile
+                                    </Link>                                        
+                                </MenuItem>
+                                
+                                <MenuItem>
+                                    
+                                    Logout
+                                </MenuItem>
+                            </Menu>
+                        
+                    </IconButton>
 
                         
                         <IconButton 
                         onClick={(e) => setAnchorEl(e.currentTarget)}
                         sx= {{color:'inherit'}}>
-                            <SettingsIcon />
+                            <SettingsBrightnessIcon />
                         </IconButton>
                         
                     </Box>

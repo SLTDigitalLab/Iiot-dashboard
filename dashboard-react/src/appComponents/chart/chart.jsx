@@ -12,12 +12,14 @@ import { styled } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import axios from "axios";
 
-// lowdah 
-const _ = require("lodash");  
-
 //application files
 import "./Chart.css";
 import { MachineContext } from "../../context/machineContext";
+
+// lowdah 
+const _ = require("lodash");  
+
+
 
 //style select box
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
