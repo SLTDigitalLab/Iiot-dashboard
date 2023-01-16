@@ -1,0 +1,35 @@
+.threshold-div {
+    padding: 10px;
+
+
+}
+
+
+
+.list-group-threshold {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.list-group-threshold {
+    list-style-type: none;
+    border: 1px solid gray;
+
+}
+
+.list {
+    padding: 5px;
+}
+
+@media (max-width: 1199.98px) {
+    .list-group {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 1980px) {
+    .list-group {
+        padding: 10px;
+    }
+}

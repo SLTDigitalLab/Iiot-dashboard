@@ -1,0 +1,92 @@
+.blink {
+    
+    animation: blink 2s steps(5, start) infinite;
+    -webkit-animation: blink 1s steps(5, start) infinite;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content:last baseline;
+   
+}
+
+.outlier{
+    display: flex;
+    flex-direction: row;
+    gap:0px;
+    justify-content: center;
+    align-items:flex-start;
+}
+
+.span{
+    cursor: pointer;
+}
+
+.precentage{
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+    font-size: 10px;
+    align-items: center;
+}
+
+.max{
+    color: #FF4560;
+}
+
+.min{
+    color: #00E396;
+}
+
+
+.card-text {
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+    flex-direction: row;
+    align-items: center;
+ 
+    
+}
+
+.current{
+    cursor: pointer;
+    display: inline-block;
+}
+
+.sensor{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    padding:30px;
+    margin-left: 15px;
+
+}
+
+.sensor-icon{
+    position: absolute;
+    margin-left: -100px;
+
+}
+
+.sensor-value{
+   
+    position: absolute;
+    margin-left: 30px;
+}
+/* animations for sensor icons */
+
+
+@keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+@-webkit-keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
+

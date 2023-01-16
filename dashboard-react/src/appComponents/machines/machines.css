@@ -1,0 +1,32 @@
+.machine {
+    padding-left: 10px;
+    width:300px;
+    padding-bottom: 10px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.machines-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.machines-header-text {
+    font-size: 16px;
+    padding-top: 22px;
+    font-weight: 700;
+    padding-left: 10px;
+}
+
+.machines-header-section {
+    padding-top: 7px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@media (max-width: 991.98px) {}
+
+@media (max-width: 1199.98px) {}

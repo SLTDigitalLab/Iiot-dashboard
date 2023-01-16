@@ -1,0 +1,32 @@
+.header-text {
+    font-size: 10px;
+    color: black;
+}
+
+.cardheader {
+    padding: 5px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+}
+
+.button-div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+
+
+
+.sensor {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-evenly
+}
