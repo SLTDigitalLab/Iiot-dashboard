@@ -10,7 +10,7 @@ export const getSectionsByCompany=(req,res)=>{
     snapshot.forEach((childSnapshot) => {
     const secKey = childSnapshot.key;
     
-    const machineRef= ref(database,'/A_0001'+secKey);
+    const machineRef= ref(database,'/A_0001');
     onValue(machineRef,(snapshot)=>{
       snapshot.f
     })
@@ -23,16 +23,45 @@ export const getSectionsByCompany=(req,res)=>{
 
 }
 
-export const getMachineLocations =(req,res)=>{
+export const getSectionsAndMachines=(req,res)=>{
 
+  // Reference to the "A_0001" node
+  const company_id= req.params.id;
+  const companyRef = ref(database,company_id);
+  const sectionsAndMachines = [];
+  onValue(companyRef,(snapshot)=>{
+      snapshot.forEach((childSnapshot) => {
+    const sectionKey = childSnapshot.key;
+    const sectionData = childSnapshot.val();
+    const machines = sectionData.machines;
+  
+     Object.keys(machines).forEach((machineKey) => {
+      const machineData = machines[machineKey];
+      const location = machineData.location;
+      const machineId = machineKey;
+      const address = location.address;
+      const latitude = location.latitude;
+      const longitude = location.longitude;
 
+      // Add the data to the sectionsAndMachines array
+      sectionsAndMachines.push({
+        sectionKey,
+        machineId,
+        address,
+        latitude,
+        longitude,
+      });
+    });
+  
+  });
+   res.send(sectionsAndMachines);
+  });
 
+ 
 
-
-
-
+  // Return the sectionsAndMachines array
+ 
 }
-
 
 
 
